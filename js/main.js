@@ -1,5 +1,3 @@
-const orderForm = document.getElementById('order-form');
-const successMessage = document.getElementById('success-message');
 const themeToggle = document.getElementById('theme-toggle');
 const themeIcon = themeToggle ? themeToggle.querySelector('.theme-toggle__icon') : null;
 const storedTheme = localStorage.getItem('theme');
@@ -31,6 +29,21 @@ if (themeToggle) {
   });
 }
 
+// Мобильное меню
+const menuToggle = document.getElementById('menu-toggle');
+const siteNav = document.getElementById('site-nav-list');
+
+if (menuToggle && siteNav) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = siteNav.classList.toggle('is-open');
+    menuToggle.setAttribute('aria-expanded', isOpen);
+  });
+}
+
+// Форма
+const orderForm = document.getElementById('order-form');
+const successMessage = document.getElementById('success-message');
+
 if (orderForm) {
   const emailInput = document.getElementById('order-email');
   const emailError = document.getElementById('email-error');
@@ -46,21 +59,17 @@ if (orderForm) {
     });
 
     if (!orderForm.checkValidity()) {
-      
       if (emailInput && !emailInput.validity.valid) {
         emailInput.setAttribute('aria-invalid', 'true');
         if (emailError) emailError.style.display = 'block';
       }
-
       formElements.forEach((el) => {
         if (el.willValidate && !el.checkValidity() && el !== emailInput) {
           el.setAttribute('aria-invalid', 'true');
         }
       });
-      
       return;
     }
-
     if (successMessage) successMessage.hidden = false;
     orderForm.reset();
   });
@@ -72,7 +81,6 @@ const productCards = document.querySelectorAll('.catalog-products .product-card'
 if (filtersForm) {
   filtersForm.addEventListener('submit', (event) => {
     event.preventDefault();
-
     const checkedCategories = Array.from(document.querySelectorAll('input[name="category"]:checked')).map(cb => cb.value);
     const priceFrom = parseInt(document.getElementById('price-from').value) || 0;
     const priceTo = parseInt(document.getElementById('price-to').value) || Infinity;
@@ -91,4 +99,21 @@ if (filtersForm) {
       }
     });
   });
+}
+
+const quickViewBtns = document.querySelectorAll('.quick-view');
+const modal = document.getElementById('quick-view-modal');
+const modalTitle = document.getElementById('modal-title');
+const modalDesc = document.getElementById('modal-desc');
+const modalClose = document.getElementById('modal-close');
+
+if (modal) {
+  quickViewBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      modalTitle.textContent = btn.dataset.title;
+      modalDesc.textContent = btn.dataset.desc;
+      modal.showModal();
+    });
+  });
+  modalClose.addEventListener('click', () => modal.close());
 }

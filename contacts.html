@@ -11,10 +11,20 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
   <header class="site-header">
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">TechNova</a>
-      <nav class="site-nav" aria-label="Основная навигация">
+      <div class="site-header__controls">
+        <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Включить тёмную тему">
+          <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+        </button>
+        <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="site-nav-list">
+          <span class="menu-toggle__icon" aria-hidden="true">☰</span>
+          <span class="visually-hidden">Открыть меню</span>
+        </button>
+      </div>
+      <nav class="site-nav" id="site-nav-list" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
@@ -22,19 +32,19 @@
           <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="contacts.html" aria-current="page">Контакты</a></li>
         </ul>
       </nav>
-      <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Включить тёмную тему">
-        <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
-      </button>
     </div>
   </header>
+
   <main id="main">
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
       <a class="breadcrumbs__link" href="index.html">Главная</a>
       <span class="breadcrumbs__current">Контакты</span>
     </nav>
+
     <section class="section">
       <h1 class="section__title">Свяжитесь с нами</h1>
       <p>Мы всегда рады помочь вам с выбором техники или ответить на вопросы по заказу.</p>
+      
       <ul class="contacts-list">
         <li class="contacts-list__item"><strong>Служба поддержки:</strong> 8 (800) 555-35-35</li>
         <li class="contacts-list__item"><strong>E-mail:</strong> support@technova.ru</li>
@@ -43,6 +53,7 @@
       </ul>
     </section>
   </main>
+
   <footer class="site-footer">
     <p class="site-footer__text">&copy; 2026 TechNova. Все права защищены.</p>
   </footer>

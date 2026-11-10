@@ -1,20 +1,54 @@
 @media (min-width: 768px) {
   .products-grid { grid-template-columns: repeat(2, 1fr); }
-  .catalog-layout { grid-template-columns: 240px 1fr; }
-  .product-detail { grid-template-columns: 1fr 1fr; }
-  .order-form--page { grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
+  .catalog-layout { grid-template-columns: 260px 1fr; }
+  .product-detail { grid-template-columns: 1fr 1fr; align-items: center; }
+  .order-form--page { grid-template-columns: 1fr 1fr; }
   .order-form__field--checkbox, .order-form__actions { grid-column: 1 / -1; }
+  
+  .menu-toggle { display: none; }
+  .site-nav { display: block; width: auto; margin-top: 0; margin-left: auto; }
+  .site-nav__list { flex-direction: row; gap: var(--space-sm); }
 }
 
 @media (min-width: 1024px) {
   .products-grid { grid-template-columns: repeat(3, 1fr); }
-  .catalog-layout { grid-template-columns: 260px 1fr; }
-  .site-nav__list { margin-top: 0; }
-  .site-header__inner { display: flex; justify-content: space-between; align-items: center; }
-  .theme-toggle { margin-top: 0; }
+  .hero { padding: var(--space-2xl) var(--space-2xl); }
+  .hero__title { font-size: 3rem; }
+}
+
+@media (max-width: 767px) {
+  .product-table { min-width: 100%; border: none; background: transparent; }
+  .product-table thead { display: none; }
+  .product-table tr {
+    display: block;
+    margin-bottom: var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    padding: var(--space-sm);
+  }
+  .product-table th, .product-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm) var(--space-md);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .product-table tbody tr:last-child th,
+  .product-table tbody tr:last-child td { border-bottom: 1px solid var(--color-border); }
+  .product-table tr th:last-child,
+  .product-table tr td:last-child { border-bottom: none; }
+  
+  .product-table th::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    margin-right: var(--space-md);
+  }
+  .table-wrapper { border: none; overflow: visible; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  body, .product-card, .button, .to-top { transition: none; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
 }

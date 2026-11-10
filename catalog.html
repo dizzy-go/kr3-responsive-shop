@@ -11,10 +11,20 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
   <header class="site-header">
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">TechNova</a>
-      <nav class="site-nav" aria-label="Основная навигация">
+      <div class="site-header__controls">
+        <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Включить тёмную тему">
+          <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+        </button>
+        <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="site-nav-list">
+          <span class="menu-toggle__icon" aria-hidden="true">☰</span>
+          <span class="visually-hidden">Открыть меню</span>
+        </button>
+      </div>
+      <nav class="site-nav" id="site-nav-list" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
           <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="catalog.html" aria-current="page">Каталог</a></li>
@@ -22,19 +32,19 @@
           <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
         </ul>
       </nav>
-      <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Включить тёмную тему">
-        <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
-      </button>
     </div>
   </header>
+
   <main id="main">
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
       <a class="breadcrumbs__link" href="index.html">Главная</a>
       <span class="breadcrumbs__current">Каталог</span>
     </nav>
+
     <section class="section">
       <h1 class="section__title">Каталог товаров</h1>
     </section>
+
     <section class="catalog-layout">
       <aside class="catalog-filters">
         <h2 class="catalog-filters__title">Фильтры</h2>
@@ -55,6 +65,7 @@
           <button class="button button--primary" type="submit">Применить</button>
         </form>
       </aside>
+
       <section class="catalog-products">
         <h2 class="catalog-products__title">Все товары</h2>
         <div class="products-grid">
@@ -63,22 +74,27 @@
             <h3 class="product-card__title">Наушники SonicWave Pro</h3>
             <p class="product-card__price">14 990 руб.</p>
             <div class="product-card__actions">
+              <button class="button button--secondary quick-view" data-title="Наушники SonicWave Pro" data-desc="Иммерсивный звук, активное шумоподавление и автономность до 30 часов.">Быстрый просмотр</button>
               <a class="button button--primary" href="order.html">Заказать</a>
             </div>
           </article>
+
           <article class="product-card" data-category="wearables" data-price="9500">
             <img class="product-card__image" src="images/product-2-640.jpg" alt="Смарт-часы FitPulse X" width="640" height="480" loading="lazy">
             <h3 class="product-card__title">Смарт-часы FitPulse X</h3>
             <p class="product-card__price">9 500 руб.</p>
             <div class="product-card__actions">
+              <button class="button button--secondary quick-view" data-title="Смарт-часы FitPulse X" data-desc="AMOLED-экран, мониторинг сна и встроенный GPS-трекер.">Быстрый просмотр</button>
               <a class="button button--primary" href="order.html">Заказать</a>
             </div>
           </article>
+
           <article class="product-card" data-category="accessories" data-price="6500">
             <img class="product-card__image" src="images/product-3-640.jpg" alt="Механическая клавиатура KeyMaster RGB" width="640" height="480" loading="lazy">
             <h3 class="product-card__title">Клавиатура KeyMaster RGB</h3>
             <p class="product-card__price">6 500 руб.</p>
             <div class="product-card__actions">
+              <button class="button button--secondary quick-view" data-title="Клавиатура KeyMaster RGB" data-desc="Механические переключатели, настраиваемая RGB-подсветка.">Быстрый просмотр</button>
               <a class="button button--primary" href="order.html">Заказать</a>
             </div>
           </article>
@@ -86,9 +102,16 @@
       </section>
     </section>
   </main>
+
   <footer class="site-footer">
     <p class="site-footer__text">&copy; 2026 TechNova. Все права защищены.</p>
   </footer>
   <a class="to-top" href="#" aria-label="Наверх">↑</a>
+
+  <dialog class="modal" id="quick-view-modal" aria-labelledby="modal-title">
+    <h2 id="modal-title" class="modal__title">Товар</h2>
+    <p id="modal-desc" class="modal__desc">Описание</p>
+    <button class="button button--primary modal__close" id="modal-close" type="button">Закрыть</button>
+  </dialog>
 </body>
 </html>

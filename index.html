@@ -11,10 +11,22 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
   <header class="site-header">
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">TechNova</a>
-      <nav class="site-nav" aria-label="Основная навигация">
+      
+      <div class="site-header__controls">
+        <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Включить тёмную тему">
+          <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+        </button>
+        <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="site-nav-list">
+          <span class="menu-toggle__icon" aria-hidden="true">☰</span>
+          <span class="visually-hidden">Открыть меню</span>
+        </button>
+      </div>
+
+      <nav class="site-nav" id="site-nav-list" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="index.html" aria-current="page">Главная</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
@@ -22,17 +34,16 @@
           <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
         </ul>
       </nav>
-      <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Включить тёмную тему">
-        <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
-      </button>
     </div>
   </header>
+
   <main id="main">
     <section class="hero">
       <h1 class="hero__title">Технологии, которые меняют привычное</h1>
       <p class="hero__text">Добро пожаловать в TechNova — магазин современной электроники и умных гаджетов. Здесь вы найдете актуальные новинки, проверенные бренды и отличный сервис.</p>
       <a class="button button--primary" href="#popular">Перейти к товарам</a>
     </section>
+
     <section class="section" id="advantages">
       <h2 class="section__title">Почему выбирают нас</h2>
       <ul class="advantages-list">
@@ -42,12 +53,16 @@
         <li>Более 10 000 довольных клиентов.</li>
       </ul>
     </section>
+
     <section class="section" id="popular">
       <h2 class="section__title">Популярные товары</h2>
       <div class="products-grid">
         <article class="product-card product-card--featured">
           <span class="product-card__badge product-card__badge--hit">Хит</span>
-          <img class="product-card__image" src="images/product-1-640.jpg" srcset="images/product-1-480.jpg 480w, images/product-1-640.jpg 640w, images/product-1-960.jpg 960w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" alt="Беспроводные наушники SonicWave Pro" width="640" height="480" loading="lazy">
+          <picture>
+            <source srcset="images/product-1-480.webp 480w, images/product-1-640.webp 640w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" type="image/webp">
+            <img class="product-card__image" src="images/product-1-640.jpg" srcset="images/product-1-480.jpg 480w, images/product-1-640.jpg 640w, images/product-1-960.jpg 960w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" alt="Беспроводные наушники SonicWave Pro" width="640" height="480" loading="lazy">
+          </picture>
           <h3 class="product-card__title">Наушники SonicWave Pro</h3>
           <p class="product-card__description">Беспроводные наушники с активным шумоподавлением и автономностью до 30 часов.</p>
           <p class="product-card__price">Цена: 14 990 руб.</p>
@@ -56,6 +71,7 @@
             <a class="button button--primary" href="order.html">Заказать</a>
           </div>
         </article>
+
         <article class="product-card">
           <img class="product-card__image" src="images/product-2-640.jpg" alt="Смарт-часы FitPulse X" width="640" height="480" loading="lazy">
           <h3 class="product-card__title">Смарт-часы FitPulse X</h3>
@@ -66,6 +82,7 @@
             <a class="button button--primary" href="order.html">Заказать</a>
           </div>
         </article>
+
         <article class="product-card product-card--discount">
           <span class="product-card__badge product-card__badge--sale">Скидка</span>
           <img class="product-card__image" src="images/product-3-640.jpg" alt="Механическая клавиатура KeyMaster RGB" width="640" height="480" loading="lazy">
@@ -80,10 +97,12 @@
       </div>
     </section>
   </main>
+
   <footer class="site-footer" id="contacts">
     <p class="site-footer__text">&copy; 2026 TechNova. Все права защищены.</p>
     <p class="site-footer__text">Современная электроника и гаджеты</p>
   </footer>
+
   <a class="to-top" href="#" aria-label="Наверх">↑</a>
 </body>
 </html>
