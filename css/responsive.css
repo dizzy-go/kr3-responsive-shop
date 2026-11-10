@@ -1,0 +1,20 @@
+@media (min-width: 768px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .catalog-layout { grid-template-columns: 240px 1fr; }
+  .product-detail { grid-template-columns: 1fr 1fr; }
+  .order-form--page { grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
+  .order-form__field--checkbox, .order-form__actions { grid-column: 1 / -1; }
+}
+
+@media (min-width: 1024px) {
+  .products-grid { grid-template-columns: repeat(3, 1fr); }
+  .catalog-layout { grid-template-columns: 260px 1fr; }
+  .site-nav__list { margin-top: 0; }
+  .site-header__inner { display: flex; justify-content: space-between; align-items: center; }
+  .theme-toggle { margin-top: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  body, .product-card, .button, .to-top { transition: none; }
+}
