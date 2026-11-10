@@ -40,7 +40,8 @@ TechNova — это адаптивная версия многостраничн
 
 ## Lighthouse
 Проверены страницы: `index.html`, `catalog.html`, `order.html`.
-Отчёт сохранён в папке `lighthouse/`.
+Результат аудита: **Accessibility — 99/100**.
+Скриншот отчёта сохранён в папке `lighthouse/accessibility-report.png`.
 
 ## Проверенные ширины
 Адаптивность протестирована на разрешениях: 360px, 430px, 768px, 1024px, 1440px.
