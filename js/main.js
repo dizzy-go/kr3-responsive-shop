@@ -32,21 +32,35 @@ if (themeToggle) {
 }
 
 if (orderForm) {
+  const emailInput = document.getElementById('order-email');
+  const emailError = document.getElementById('email-error');
+
   orderForm.addEventListener('submit', (event) => {
     event.preventDefault();
+    
+    if (emailError) emailError.style.display = 'none';
+    
     const formElements = Array.from(orderForm.elements);
     formElements.forEach((el) => {
       if (el.willValidate) el.removeAttribute('aria-invalid');
     });
+
     if (!orderForm.checkValidity()) {
+      
+      if (emailInput && !emailInput.validity.valid) {
+        emailInput.setAttribute('aria-invalid', 'true');
+        if (emailError) emailError.style.display = 'block';
+      }
+
       formElements.forEach((el) => {
-        if (el.willValidate && !el.checkValidity()) {
+        if (el.willValidate && !el.checkValidity() && el !== emailInput) {
           el.setAttribute('aria-invalid', 'true');
         }
       });
-      orderForm.reportValidity();
+      
       return;
     }
+
     if (successMessage) successMessage.hidden = false;
     orderForm.reset();
   });
