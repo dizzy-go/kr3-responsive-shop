@@ -11,10 +11,20 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
   <header class="site-header">
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">TechNova</a>
-      <nav class="site-nav" aria-label="Основная навигация">
+      <div class="site-header__controls">
+        <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Включить тёмную тему">
+          <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+        </button>
+        <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="site-nav-list">
+          <span class="menu-toggle__icon" aria-hidden="true">☰</span>
+          <span class="visually-hidden">Открыть меню</span>
+        </button>
+      </div>
+      <nav class="site-nav" id="site-nav-list" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
@@ -22,17 +32,16 @@
           <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
         </ul>
       </nav>
-      <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Включить тёмную тему">
-        <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
-      </button>
     </div>
   </header>
+
   <main id="main">
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
       <a class="breadcrumbs__link" href="index.html">Главная</a>
       <a class="breadcrumbs__link" href="catalog.html">Каталог</a>
       <span class="breadcrumbs__current">Наушники SonicWave Pro</span>
     </nav>
+
     <section class="product-detail">
       <div class="product-detail__media">
         <img class="product-detail__image" src="images/product-1-640.jpg" srcset="images/product-1-480.jpg 480w, images/product-1-640.jpg 640w" sizes="(max-width: 768px) 100vw, 50vw" alt="Беспроводные наушники SonicWave Pro в черном цвете" width="640" height="480">
@@ -46,6 +55,7 @@
         </div>
       </div>
     </section>
+
     <section class="section">
       <h2 class="section__title">Характеристики</h2>
       <div class="table-wrapper">
@@ -58,16 +68,32 @@
             </tr>
           </thead>
           <tbody>
-            <tr><th scope="row">Тип</th><td>Накладные, беспроводные</td></tr>
-            <tr><th scope="row">Подключение</th><td>Bluetooth 5.3 / 3.5 мм</td></tr>
-            <tr><th scope="row">Время работы</th><td>До 30 часов</td></tr>
-            <tr><th scope="row">Шумоподавление</th><td>Активное (ANC)</td></tr>
-            <tr><th scope="row">Вес</th><td>250 г</td></tr>
+            <tr>
+              <th scope="row" data-label="Параметр">Тип</th>
+              <td data-label="Значение">Накладные, беспроводные</td>
+            </tr>
+            <tr>
+              <th scope="row" data-label="Параметр">Подключение</th>
+              <td data-label="Значение">Bluetooth 5.3 / 3.5 мм</td>
+            </tr>
+            <tr>
+              <th scope="row" data-label="Параметр">Время работы</th>
+              <td data-label="Значение">До 30 часов</td>
+            </tr>
+            <tr>
+              <th scope="row" data-label="Параметр">Шумоподавление</th>
+              <td data-label="Значение">Активное (ANC)</td>
+            </tr>
+            <tr>
+              <th scope="row" data-label="Параметр">Вес</th>
+              <td data-label="Значение">250 г</td>
+            </tr>
           </tbody>
         </table>
       </div>
     </section>
   </main>
+
   <footer class="site-footer">
     <p class="site-footer__text">&copy; 2026 TechNova. Все права защищены.</p>
   </footer>
